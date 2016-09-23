@@ -32,11 +32,13 @@ final class MainViewController: UIViewController, UITableViewDataSource {
         
         let dataTask = session.dataTaskWithRequest(request) {
             (taskData, taskResponse, taskError) in
-            
-            guard let data = taskData where taskError == nil else {
+
+            guard taskError == nil else {
                 print("Error retrieving response from the DuckDuckGo API.")
                 return
             }
+            
+            let data = taskData
             
             dispatch_async(dispatch_get_main_queue()) {
                 do {
@@ -69,9 +71,9 @@ final class MainViewController: UIViewController, UITableViewDataSource {
         
         dataTask.resume()
     }
-    
+
     func randomizeImages() {
-        for (var i = 0; i < self.imageURLStringsArray.count; i++) {
+        for i in (0..<self.imageURLStringsArray.count) {
             let randomIndex = Int(arc4random()) % self.imageURLStringsArray.count
             let randomImageURLString = self.imageURLStringsArray[randomIndex]
             self.imageURLStringsArray[randomIndex] = self.imageURLStringsArray[i]

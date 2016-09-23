@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license     = { :type => 'MIT',
 		    		:file => 'LICENSE' }
   s.authors     = { 'kiavashfaisali' => 'kiavashfaisali@outlook.com' }
-
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '2.3' }
   s.platform = :ios, '8.2'
   s.requires_arc = true
   s.ios.deployment_target = '8.2'

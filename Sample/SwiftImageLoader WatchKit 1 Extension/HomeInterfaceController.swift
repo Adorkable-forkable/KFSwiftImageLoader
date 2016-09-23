@@ -97,7 +97,7 @@ final class HomeInterfaceController: WKInterfaceController {
     }
     
     func randomizeImages() {
-        for (var i = 0; i < self.imageURLStringsArray.count; i++) {
+        for i in (0..< self.imageURLStringsArray.count) {
             let randomIndex = Int(arc4random()) % self.imageURLStringsArray.count
             let tempValue = self.imageURLStringsArray[randomIndex]
             self.imageURLStringsArray[randomIndex] = self.imageURLStringsArray[i]
